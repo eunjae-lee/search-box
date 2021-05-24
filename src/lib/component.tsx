@@ -10,6 +10,7 @@ export const SearchBoxComponent = ({ refine, query }: Props) => {
     <div>
       <input
         type="search"
+        placeholder="Search here..."
         value={query}
         onChange={(event) => {
           refine(event.target.value);
