@@ -1,28 +1,27 @@
 import { createConnector } from 'react-instantsearch-dom';
 
 export const connectSearchBox = createConnector({
-	displayName: 'SearchBox',
+  displayName: 'SearchBox',
 
-	getProvidedProps(props, _searchState, _searchResults) {
-		return {
-			// TODO: return a props for the component
-		};
-	},
+  getProvidedProps(props, _searchState, _searchResults) {
+    return {
+      query: props.query,
+    };
+  },
 
-	refine(_props, searchState, nextRefinement) {
-		return {
-			// TODO: return a next searchState
-		};
-	},
+  refine(_props, searchState, nextRefinement) {
+    return {
+      ...searchState,
+      query: nextRefinement,
+    };
+  },
 
-	cleanUp(_props, searchState, _context) {
-		return {
-			// TODO: return a searchState where this widget is removed from the widget tree
-		};
-	},
+  cleanUp(_props, searchState, _context) {
+    const { query, ...rest } = searchState;
+    return rest;
+  },
 
-	getSearchParameters(searchParameters, _props, searchState) {
-		// TODO: update and return the searchParameters
-		return searchParameters;
-	},
+  getSearchParameters(searchParameters, _props, searchState) {
+    return searchParameters.setQuery(searchState.query);
+  },
 });

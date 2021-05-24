@@ -1,9 +1,20 @@
 import React from 'react';
 
 type Props = {
-	// TODO: this is the object returned by `getProvidedProps` from the connector.
+  refine: (query: string) => void;
+  query?: string;
 };
 
-export const SearchBoxComponent = ({}: Props) => {
-	return <div>{/* TODO: render something */}</div>;
+export const SearchBoxComponent = ({ refine, query }: Props) => {
+  return (
+    <div>
+      <input
+        type="search"
+        value={query}
+        onChange={(event) => {
+          refine(event.target.value);
+        }}
+      />
+    </div>
+  );
 };
