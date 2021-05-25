@@ -14,7 +14,7 @@ const searchClient = algoliasearch(
 ReactDOM.render(
   <React.StrictMode>
     <InstantSearch indexName="instant_search" searchClient={searchClient}>
-      <SearchBox />
+      <SearchBox placeholder="Search:" />
       <Hits />
     </InstantSearch>
   </React.StrictMode>,

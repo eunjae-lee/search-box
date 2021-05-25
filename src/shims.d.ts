@@ -46,5 +46,5 @@ declare module 'react-instantsearch-dom' {
 
   export const createConnector: (
     connectorDesc: ConnectorDescription
-  ) => (component: ElementType) => ElementType;
+  ) => (component: ElementType<any>) => ElementType<unknown>;
 }
