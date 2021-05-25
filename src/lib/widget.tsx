@@ -10,7 +10,5 @@ type WidgetParams = {
   placeholder?: string;
 };
 
-type Widget<TWidgetParams = any> = ElementType<TWidgetParams>;
-
-export const SearchBox: Widget<WidgetParams> =
+export const SearchBox: ElementType<WidgetParams> =
   connectSearchBox(SearchBoxComponent);
