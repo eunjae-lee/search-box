@@ -6,6 +6,7 @@ export const connectSearchBox = createConnector({
   getProvidedProps(props, _searchState, _searchResults) {
     return {
       query: props.query,
+      placeholder: props.placeholder,
     };
   },
 
